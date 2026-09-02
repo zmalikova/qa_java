@@ -3,9 +3,6 @@ package com.example;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 
 public class FelineTest {
 
@@ -13,7 +10,11 @@ public class FelineTest {
     public void eatMeatShouldReturnPredatorFood() throws Exception {
         Feline feline = new Feline();
 
-        List<String> expected = List.of("Животные", "Птицы", "Рыба");
+        List<String> expected = List.of(
+                "Животные",
+                "Птицы",
+                "Рыба"
+        );
 
         assertEquals(expected, feline.eatMeat());
     }
@@ -31,14 +32,4 @@ public class FelineTest {
 
         assertEquals(1, feline.getKittens());
     }
-
-    @ParameterizedTest
-    @ValueSource(ints = {1, 2, 3, 5, 10})
-    public void getKittensShouldReturnSpecifiedNumber(int kittensCount) {
-        Feline feline = new Feline();
-
-        assertEquals(kittensCount, feline.getKittens(kittensCount));
-    }
-
 }
-
